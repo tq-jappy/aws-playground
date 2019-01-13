@@ -18,6 +18,8 @@
     "aws-cdk": "^0.22.0"
   },
   "dependencies": {
+    "@aws-cdk/aws-dynamodb": "0.22.0",
+    "@aws-cdk/aws-kinesisfirehose": "0.22.0",
     "@aws-cdk/cdk": "^0.22.0"
   }
 }
