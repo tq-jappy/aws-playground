@@ -14,7 +14,7 @@
     "clean": "rimraf lib/*.js lib/*.d.ts bin/*.ts bin/*.d.ts"
   },
   "devDependencies": {
-    "@types/node": "^12.7.2",
+    "@types/node": "12.7.2",
     "aws-cdk": "^1.4.0",
     "rimraf": "3.0.0",
     "typescript": "3.5.3"
