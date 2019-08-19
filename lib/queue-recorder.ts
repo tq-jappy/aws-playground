@@ -1,4 +1,4 @@
-import cdk = require('@aws-cdk/cdk');
+import cdk = require('@aws-cdk/core');
 import sqs = require('@aws-cdk/aws-sqs');
 import lambda = require('@aws-cdk/aws-lambda');
 import dynamodb = require('@aws-cdk/aws-dynamodb');
@@ -13,19 +13,19 @@ export class QueueRecorder extends cdk.Construct {
     super(parent, id);
 
     const table = new dynamodb.Table(this, 'HelloTable', {
-      partitionKey: { name: 'id', type: dynamodb.AttributeType.String }
+      partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING }
     });
 
     const fn = new lambda.Function(this, 'HelloFunction', {
-      runtime: lambda.Runtime.NodeJS810,
+      runtime: lambda.Runtime.NODEJS_8_10,
       code: lambda.Code.asset('lambda'),
       handler: 'index.handler'
     });
 
     fn.addEventSource(new SqsEventSource(props.inputQueue));
 
-    fn.addEnvironment('TABLE_NAME', table.tableName)
+    fn.addEnvironment('TABLE_NAME', table.tableName);
 
-    table.grantWriteData(fn.role);
+    table.grantWriteData(fn);
   }
 }

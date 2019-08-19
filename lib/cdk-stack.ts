@@ -1,4 +1,4 @@
-import cdk = require('@aws-cdk/cdk');
+import cdk = require('@aws-cdk/core');
 import dynamodb = require('@aws-cdk/aws-dynamodb');
 import { BillingMode, AttributeType } from '@aws-cdk/aws-dynamodb';
 
@@ -8,10 +8,17 @@ export class CdkStack extends cdk.Stack {
 
     const table = new dynamodb.Table(this, 'CdkExampleTable', {
       tableName: 'cdk-item',
-      billingMode: BillingMode.PayPerRequest,
-      ttlAttributeName: 'ttl'
+      partitionKey: {
+        name: 'id',
+        type: AttributeType.STRING
+      },
+      sortKey: {
+        name: 'timestamp',
+        type: AttributeType.NUMBER
+      },
+      billingMode: BillingMode.PAY_PER_REQUEST,
+      timeToLiveAttribute: 'ttl'
     });
-    table.addPartitionKey({ name: 'id', type: AttributeType.String });
-    table.addSortKey({ name: 'timestamp', type: dynamodb.AttributeType.Number });
+    console.log('created table', table);
   }
 }
