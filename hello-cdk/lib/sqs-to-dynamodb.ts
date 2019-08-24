@@ -8,7 +8,7 @@ export interface QueueRecorderProps {
   inputQueue: sqs.Queue;
 }
 
-export class QueueRecorder extends cdk.Construct {
+export class SqsToDynamoDbStack extends cdk.Construct {
   constructor(parent: cdk.Construct, id: string, props: QueueRecorderProps) {
     super(parent, id);
 

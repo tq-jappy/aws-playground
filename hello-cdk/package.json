@@ -1,0 +1,28 @@
+{
+  "name": "hello-cdk",
+  "version": "0.1.0",
+  "bin": {
+    "hello-cdk": "bin/hello-cdk.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "8.10.45",
+    "typescript": "^3.3.3333",
+    "ts-node": "^8.1.0",
+    "aws-cdk": "^1.4.0"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-dynamodb": "^1.4.0",
+    "@aws-cdk/aws-kinesisfirehose": "^1.4.0",
+    "@aws-cdk/aws-lambda": "^1.4.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.4.0",
+    "@aws-cdk/aws-sns": "^1.4.0",
+    "@aws-cdk/aws-sns-subscriptions": "^1.4.0",
+    "@aws-cdk/aws-sqs": "^1.4.0",
+    "@aws-cdk/core": "^1.4.0"
+  }
+}

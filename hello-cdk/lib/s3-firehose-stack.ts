@@ -6,7 +6,7 @@ export interface S3FirehoseProps {
   roleArn: string;
 }
 
-export class S3Firehose extends cdk.Construct {
+export class S3FirehoseStack extends cdk.Construct {
   constructor(parent: cdk.Construct, id: string, props: S3FirehoseProps) {
     super(parent, id);
 
