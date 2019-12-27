@@ -8,13 +8,15 @@ exports.handler = async (event: any) => {
   for (const record of event.Records) {
     const body = record.body ? JSON.parse(record.body) : {};
 
-    await client.put({
-      TableName: process.env.TABLE_NAME || '',
-      Item: {
-        id: record.messageId,
-        text: body.text,
-        body
-      }
-    }).promise();
+    await client
+      .put({
+        TableName: process.env.TABLE_NAME || '',
+        Item: {
+          id: record.messageId,
+          text: body.text,
+          body
+        }
+      })
+      .promise();
   }
-}
+};

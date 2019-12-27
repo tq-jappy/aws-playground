@@ -18,7 +18,7 @@ export class SqsToDynamoDbStack extends cdk.Construct {
 
     const fn = new lambda.Function(this, 'HelloFunction', {
       runtime: lambda.Runtime.NODEJS_8_10,
-      code: lambda.Code.asset('lambda'),
+      code: lambda.Code.asset('lambda-src'),
       handler: 'index.handler'
     });
 
